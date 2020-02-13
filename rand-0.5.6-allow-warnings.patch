@@ -1,0 +1,11 @@
+--- rand-0.5.6/src/lib.rs.orig	2019-01-26 02:19:33.000000000 -0800
++++ rand-0.5.6/src/lib.rs	2019-12-10 12:35:23.150740539 -0800
+@@ -228,7 +228,7 @@
+ 
+ #![deny(missing_docs)]
+ #![deny(missing_debug_implementations)]
+-#![doc(test(attr(allow(unused_variables), deny(warnings))))]
++#![doc(test(attr(allow(unused_variables))))]
+ 
+ #![cfg_attr(not(feature="std"), no_std)]
+ #![cfg_attr(all(feature="alloc", not(feature="std")), feature(alloc))]

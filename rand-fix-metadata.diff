@@ -1,0 +1,34 @@
+--- rand-0.5.6/Cargo.toml	1970-01-01T00:00:00+00:00
++++ rand-0.5.6/Cargo.toml	2019-06-22T07:54:04.893889+00:00
+@@ -22,6 +22,7 @@
+ categories = ["algorithms", "no-std"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-lang-nursery/rand"
++exclude = ["/utils/*", "/.travis.yml", "/appveyor.yml"]
+ [package.metadata.docs.rs]
+ all-features = true
+ [dependencies.log]
+@@ -48,22 +49,9 @@
+ i128_support = []
+ nightly = ["i128_support"]
+ serde1 = ["serde", "serde_derive", "rand_core/serde1"]
+-std = ["rand_core/std", "alloc", "libc", "winapi", "cloudabi", "fuchsia-cprng"]
+-[target."cfg(target_os = \"cloudabi\")".dependencies.cloudabi]
+-version = "0.0.3"
+-optional = true
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-cprng]
+-version = "0.1.0"
+-optional = true
++std = ["rand_core/std", "alloc", "libc"]
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+-optional = true
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "ntsecapi", "profileapi", "winnt"]
+-optional = true
+-[target.wasm32-unknown-unknown.dependencies.stdweb]
+-version = "0.4"
+ optional = true
+ [badges.appveyor]
+ repository = "alexcrichton/rand"
